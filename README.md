@@ -1,11 +1,5 @@
 # hls-m3u8 - HLS m3u8 playlist library
 
-![Test](https://github.com/Eyevinn/hls-m3u8/workflows/Go/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/Eyevinn/hls-m3u8/badge.svg?branch=main)](https://coveralls.io/github/Eyevinn/hls-m3u8?branch=main)
-[![GoDoc](https://godoc.org/github.com/Eyevinn/hls-m3u8?status.svg)](http://godoc.org/github.com/Eyevinn/hls-m3u8)
-[![Go Report Card](https://goreportcard.com/badge/github.com/Eyevinn/hls-m3u8)](https://goreportcard.com/report/github.com/Eyevinn/hls-m3u8)
-[![license](https://img.shields.io/github/license/Eyevinn/hls-m3u8.svg)](https://github.com/Eyevinn/hls-m3u8/blob/main/LICENSE)
-
 hls-m3u8 implements parsing and generation of HLS m3u8 playlists.
 HLS (HTTP Live Streaming) is an evolving protocol with multiple versions.
 Versions 1-7 are described in [IETF RFC8216][rfc8216], but the protocol has continued
@@ -58,13 +52,13 @@ This is a library that should be downloaded like other Go code.
 To enable it in your Go project, run
 
 ```sh
-go get github.com/Eyevinn/hls-m3u8/m3u8
+go get github.com/5rahim/hls-m3u8/m3u8
 ```
 
 To use the code add
 
 ```go
-import github.com/Eyevinn/hls-m3u8/m3u8
+import github.com/5rahim/hls-m3u8/m3u8
 ```
 
 to your source files.
@@ -137,7 +131,7 @@ The first release (v0.1.0), is essentially a cleaned
 and slightly bug-fixed  version of [grafov/m3u8][grafov]
 
 Replace `import github.com/grafov/m3u8` with
-`import github.com/Eyevinn/hls-m3u8/m3u8` and you should
+`import github.com/5rahim/hls-m3u8/m3u8` and you should
 hopefully be fine to go.
 
 Later versions have more changes and additions, so it is likely
@@ -153,35 +147,3 @@ See [CONTRIBUTING](CONTRIBUTING.md)
 
 This project is licensed under the BSD Clause 3 License, see [LICENSE](LICENSE)
 to align with the included code from the [grafov/m3u8][grafov] project.
-
-## Issues and Discussion
-
-Use the [issues][issues] to file an issue. Questions and discussions belong to the
-[discussions][discussions] part of the repo. For support questions, see below.
-
-## Support
-
-Join our [community on Slack](https://slack.streamingtech.se) where you can post any questions regarding any of Eyevinn's open source projects. Eyevinn's consulting business can also offer you:
-
-- Further development of this component
-- Customization and integration of this component into your platform
-- Support and maintenance agreement
-
-Contact [sales@eyevinn.se](mailto:sales@eyevinn.se) if you are interested.
-
-# About Eyevinn Technology
-
-[Eyevinn Technology](https://www.eyevinntechnology.se) is an independent consultant firm specialized in video and streaming. Independent in a way that we are not commercially tied to any platform or technology vendor. As our way to innovate and push the industry forward we develop proof-of-concepts and tools. The things we learn and the code we write we share with the industry in [blogs](https://dev.to/video) and by open sourcing the code we have written.
-
-Want to know more about Eyevinn and how it is to work here. Contact us at work@eyevinn.se!
-
-[rfc8216]: https://datatracker.ietf.org/doc/html/rfc8216
-[rfc8216bis]: https://datatracker.ietf.org/doc/draft-pantos-hls-rfc8216bis/
-[rfc8216bis-07]: https://datatracker.ietf.org/doc/html/draft-pantos-hls-rfc8216bis-07
-[rfc8216bis-10]: https://datatracker.ietf.org/doc/html/draft-pantos-hls-rfc8216bis-10
-[rfc8216bis-16]: https://datatracker.ietf.org/doc/html/draft-pantos-hls-rfc8216bis-16
-[grafov]: https://github.com/grafov/m3u8
-[issues]: https://github.com/Eyevinn/hls-m3u8/issues
-[discussions]: https://github.com/Eyevinn/hls-m3u8/discussions
-[is]: https://github.com/matryer/is
-[m3u8-examples]: https://pkg.go.dev/github.com/Eyevinn/hls-m3u8/m3u8#pkg-examples

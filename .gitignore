@@ -17,3 +17,5 @@ vendor/
 
 # Configuration from VSCode
 *.DS_Store
+
+.idea

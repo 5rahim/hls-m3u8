@@ -1,4 +1,4 @@
-module github.com/Eyevinn/hls-m3u8
+module github.com/5rahim/hls-m3u8
 
 go 1.21
 

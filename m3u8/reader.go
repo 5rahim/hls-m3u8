@@ -28,6 +28,17 @@ var reKeyValue = regexp.MustCompile(`([a-zA-Z0-9_-]+)=("[^"]+"|[^",]+)`)
 //   - StrictTimeParse - implements only RFC3339 Nanoseconds format
 var TimeParse func(value string) (time.Time, error) = FullTimeParse
 
+// atoi converts a string to an integer, it falls back to strconv.ParseFloat if conversion fails.
+func atoi(s string) (int, error) {
+	if val, err := strconv.Atoi(s); err == nil {
+		return val, nil
+	}
+	if fval, err := strconv.ParseFloat(s, 64); err == nil {
+		return int(fval), nil
+	}
+	return 0, strconv.ErrSyntax
+}
+
 // Decode parses a master playlist passed from the buffer. If `strict`
 // parameter is true then it returns first syntax error.
 func (p *MasterPlaylist) Decode(data bytes.Buffer, strict bool) error {
@@ -513,13 +524,13 @@ func parseExtXMedia(line string, strict bool) (Alternative, error) {
 		case "INSTREAM-ID":
 			alt.InstreamId = v
 		case "BIT-DEPTH":
-			bitDepth, err := strconv.Atoi(v)
+			bitDepth, err := atoi(v)
 			if err != nil {
 				return alt, fmt.Errorf("invalid BIT-DEPTH: %w", err)
 			}
 			alt.BitDepth = byte(bitDepth)
 		case "SAMPLE-RATE":
-			sampleRate, err := strconv.Atoi(v)
+			sampleRate, err := atoi(v)
 			if err != nil {
 				return alt, fmt.Errorf("invalid SAMPLE-RATE: %w", err)
 			}
@@ -551,13 +562,13 @@ func parseExtXStreamInf(line string, strict bool) (*Variant, error) {
 	for _, a := range attrs {
 		switch a.Key {
 		case "BANDWIDTH":
-			val, err := strconv.Atoi(a.Val)
+			val, err := atoi(a.Val)
 			if strict && err != nil {
 				return nil, err
 			}
 			variant.Bandwidth = uint32(val)
 		case "AVERAGE-BANDWIDTH":
-			val, err := strconv.Atoi(a.Val)
+			val, err := atoi(a.Val)
 			if strict && err != nil {
 				return nil, err
 			}
